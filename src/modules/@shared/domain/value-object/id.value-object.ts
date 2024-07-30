@@ -4,7 +4,7 @@ import ValueObject from './value-object.interface';
 export default class Id implements ValueObject {
   private _id: string;
 
-  constructor(id: string) {
+  constructor(id?: string) {
     this._id = id || uuidv4();
   }
 
