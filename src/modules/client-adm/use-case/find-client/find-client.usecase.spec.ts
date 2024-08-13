@@ -1,4 +1,5 @@
 import Id from '../../../@shared/domain/value-object/id.value-object';
+import Address from '../../../invoice/value-object/address';
 import Client from '../../domain/client.entity';
 import FindClientUsecase from './find-client.usecase';
 
@@ -6,7 +7,15 @@ const client = new Client({
   id: new Id('1'),
   name: 'any_name',
   email: 'any_email',
-  address: 'any_address',
+  document: 'any_document',
+  address: new Address(
+    'any_address',
+    'any_number',
+    'any_complement',
+    'any_city',
+    'any_state',
+    'any_zipCode',
+  ),
 });
 
 const MockRepository = () => {
@@ -29,9 +38,10 @@ describe('FindClientUsecase unit test', () => {
     const result = await usecase.execute(input);
 
     expect(repository.find).toHaveBeenCalled();
-    expect(result.id).toBe('1');
-    expect(result.name).toBe('any_name');
-    expect(result.email).toBe('any_email');
-    expect(result.address).toBe('any_address');
+    expect(result.id).toEqual(client.id.id);
+    expect(result.name).toEqual(client.name);
+    expect(result.email).toEqual(client.email);
+    expect(result.document).toEqual(client.document);
+    expect(result.address).toEqual(client.address);
   });
 });

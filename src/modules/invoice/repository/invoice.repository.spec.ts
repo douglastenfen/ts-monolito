@@ -34,14 +34,14 @@ describe('InvoiceRepository test', () => {
       id: new Id('1'),
       name: 'any_name',
       document: 'any_document',
-      address: new Address({
-        street: 'any_street',
-        number: 'any_number',
-        complement: 'any_complement',
-        city: 'any_city',
-        state: 'any_state',
-        zipCode: 'any_zipCode',
-      }),
+      address: new Address(
+        'any_street',
+        'any_number',
+        'any_complement',
+        'any_city',
+        'any_state',
+        'any_zipCode',
+      ),
       items: [
         new InvoiceItems({
           id: new Id('1'),

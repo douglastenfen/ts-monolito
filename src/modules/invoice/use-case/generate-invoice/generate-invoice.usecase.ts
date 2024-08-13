@@ -20,14 +20,14 @@ export default class GenerateInvoiceUseCase {
     const invoice = new Invoice({
       name: input.name,
       document: input.document,
-      address: new Address({
-        street: input.street,
-        number: input.number,
-        complement: input.complement,
-        city: input.city,
-        state: input.state,
-        zipCode: input.zipCode,
-      }),
+      address: new Address(
+        input.street,
+        input.number,
+        input.complement,
+        input.city,
+        input.state,
+        input.zipCode
+      ),
       items: input.items.map((item) => {
         return new InvoiceItems({
           name: item.name,

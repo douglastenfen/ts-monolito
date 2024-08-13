@@ -21,14 +21,14 @@ export default class InvoiceRepository implements InvoiceGateway {
       id: new Id(invoice.id),
       name: invoice.name,
       document: invoice.document,
-      address: new Address({
-        street: invoice.street,
-        number: invoice.number,
-        complement: invoice.complement,
-        city: invoice.city,
-        state: invoice.state,
-        zipCode: invoice.zipCode,
-      }),
+      address: new Address(
+        invoice.street,
+        invoice.number,
+        invoice.complement,
+        invoice.city,
+        invoice.state,
+        invoice.zipCode
+      ),
       items: invoice.items.map(
         (item) =>
           new InvoiceItems({
