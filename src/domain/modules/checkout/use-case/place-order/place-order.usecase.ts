@@ -95,8 +95,6 @@ export default class PlaceOrderUseCase implements UseCaseInterface {
       products: order.products.map((product) => ({
         productId: product.id.id,
       })),
-      createdAt: order.createdAt,
-      updatedAt: order.updatedAt,
     };
   }
 

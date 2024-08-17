@@ -13,6 +13,4 @@ export interface PlaceOrderOutputDto {
   products: {
     productId: string;
   }[];
-  createdAt: Date;
-  updatedAt: Date;
 }

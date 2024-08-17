@@ -1,5 +1,5 @@
 import { Sequelize } from 'sequelize-typescript';
-import { ProductModel } from './product.model';
+import ProductModel from './product.model';
 import Id from '../../@shared/domain/value-object/id.value-object';
 import Product from '../domain/product.entity';
 import ProductRepository from './product.repository';
@@ -31,8 +31,6 @@ describe('ProductRepository test', () => {
       description: 'Description of product 1',
       purchasePrice: 10,
       stock: 10,
-      createdAt: new Date(),
-      updatedAt: new Date(),
     };
 
     const product = new Product(productProps);
@@ -61,8 +59,6 @@ describe('ProductRepository test', () => {
       description: 'Description of product 1',
       purchasePrice: 10,
       stock: 10,
-      createdAt: new Date(),
-      updatedAt: new Date(),
     });
 
     const product = await productRepository.find('1');
